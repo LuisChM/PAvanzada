@@ -1,0 +1,90 @@
+﻿@model Proyecto.Models.Institucion
+
+@{
+    ViewBag.Title = "Detalle";
+}
+
+<h2>Detalle</h2>
+
+<div>
+    <h4>Institucion</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IdInstitucion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdInstitucion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telefono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Encargado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Encargado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Direccion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Direccion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Provincia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Provincia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Canton)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Canton)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Distrito)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Distrito)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estado)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Editar", new { id = Model.IdInstitucion }, new { @class= "btn btn-primary"}) |
+    @Html.ActionLink("Volver", "Index")
+</p>

@@ -1,0 +1,91 @@
+﻿@model IEnumerable<Proyecto.Models.Institucion>
+
+@{
+    ViewBag.Title = "Instituciones";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a class="btn btn-primary" href="Institucion/Crear" role="button">Agregar nueva instictucion</a>
+</p>
+<div style="overflow-x:auto;">
+    <table class="table table-striped text-center">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.IdInstitucion)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.Descripcion)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.Telefono)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.Encargado)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.Direccion)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.Provincia)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.Canton)
+                </th >
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.Distrito)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.Estado)
+                </th>
+                <th scope="col">Accion</th>
+            </tr>
+        </thead>
+
+        @foreach (var item in Model)
+        {
+            <tbody>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IdInstitucion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Descripcion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Telefono)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Encargado)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Direccion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Provincia)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Canton)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Distrito)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Estado)
+                    </td>
+                    <td>
+
+                        @Html.ActionLink("Editar", "Editar", new {  id=item.IdInstitucion }, new { @class = "btn btn-primary btn-sm" })
+                        @Html.ActionLink("Detalle", "Detalle", new { id = item.IdInstitucion }, new { @class = "btn btn-info btn-sm" })
+                        @Html.ActionLink("Eliminar", "Eliminar", new { id = item.IdInstitucion }, new { @class = "btn btn-danger btn-sm" })
+                    </td>
+                </tr>
+            </tbody>
+
+        }
+
+    </table>
+</div>
+
