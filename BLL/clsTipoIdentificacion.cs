@@ -37,7 +37,7 @@ namespace BLL
 				throw;
 			}
 		}
-		public bool EliminaTipoIdentificacion(int IdTipoIdentificacion)
+		public bool EliminarTipoIdentificacion(int IdTipoIdentificacion)
 		{
 			try
 			{
@@ -50,12 +50,12 @@ namespace BLL
 				return false;
 			}
 		}
-		public bool ActualizarTipoIdentificacion(int IdTipoIdentificacion, string Descripcion, string Telefono, string Encargado, string Direccion, char Provincia, string Canton, string Distrito, bool Estado)
+		public bool ActualizarTipoIdentificacion(int IdTipoIdentificacion, string Descripcion, bool Estado)
 		{
 			try
 			{
 				DatosDataContext db = new DatosDataContext();
-				var dato = db.ActualizarTipoIdentificacion(IdTipoIdentificacion, Descripcion, Telefono, Encargado, Direccion, Provincia, Canton, Distrito, Estado);
+				var dato = db.ActualizarTipoIdentificacion(IdTipoIdentificacion, Descripcion, Estado);
 				return true;
 			}
 			catch (Exception ex)
@@ -63,12 +63,12 @@ namespace BLL
 				return false;
 			}
 		}
-		public bool AgregarTipoIdentificacion(string Descripcion, string Telefono, string Encargado, string Direccion, char Provincia, string Canton, string Distrito, bool Estado)
+		public bool AgregarTipoIdentificacion(string Descripcion, bool Estado)
 		{
 			try
 			{
 				DatosDataContext db = new DatosDataContext();
-				var dato = db.AgregarTipoIdentificacion(Descripcion, Telefono, Encargado, Direccion, Provincia, Canton, Distrito, Estado);
+				var dato = db.AgregarTipoIdentificacion(Descripcion, Estado);
 				return true;
 			}
 			catch (Exception ex)

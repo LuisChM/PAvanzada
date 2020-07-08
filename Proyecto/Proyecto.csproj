@@ -127,11 +127,13 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HorarioController.cs" />
     <Compile Include="Controllers\InstitucionController.cs" />
+    <Compile Include="Controllers\TipoIdentificacionController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Horario.cs" />
     <Compile Include="Models\Institucion.cs" />
+    <Compile Include="Models\TipoIdentificacion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -279,6 +281,11 @@
     <Content Include="Views\Institucion\Eliminar.cshtml" />
     <Content Include="Views\Institucion\Detalle.cshtml" />
     <Content Include="Views\Institucion\Editar.cshtml" />
+    <Content Include="Views\TipoIdentificacion\Detalle.cshtml" />
+    <Content Include="Views\TipoIdentificacion\Index.cshtml" />
+    <Content Include="Views\TipoIdentificacion\Editar.cshtml" />
+    <Content Include="Views\TipoIdentificacion\Crear.cshtml" />
+    <Content Include="Views\TipoIdentificacion\Eliminar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

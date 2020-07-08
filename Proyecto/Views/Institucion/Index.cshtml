@@ -7,7 +7,7 @@
 <h2>Index</h2>
 
 <p>
-    <a class="btn btn-primary" href="Institucion/Crear" role="button">Agregar nueva instictucion</a>
+    @Html.ActionLink("Agregar nueva institucion", "Crear","Institucion", new { @class = "btn btn-primary" })
 </p>
 <div style="overflow-x:auto;">
     <table class="table table-striped text-center">
@@ -33,7 +33,7 @@
                 </th>
                 <th scope="col">
                     @Html.DisplayNameFor(model => model.Canton)
-                </th >
+                </th>
                 <th scope="col">
                     @Html.DisplayNameFor(model => model.Distrito)
                 </th>
@@ -43,10 +43,10 @@
                 <th scope="col">Accion</th>
             </tr>
         </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
 
-        @foreach (var item in Model)
-        {
-            <tbody>
                 <tr>
                     <td>
                         @Html.DisplayFor(modelItem => item.IdInstitucion)
@@ -77,15 +77,16 @@
                     </td>
                     <td>
 
-                        @Html.ActionLink("Editar", "Editar", new {  id=item.IdInstitucion }, new { @class = "btn btn-primary btn-sm" })
+                        @Html.ActionLink("Editar", "Editar", new { id = item.IdInstitucion }, new { @class = "btn btn-primary btn-sm" })
                         @Html.ActionLink("Detalle", "Detalle", new { id = item.IdInstitucion }, new { @class = "btn btn-info btn-sm" })
                         @Html.ActionLink("Eliminar", "Eliminar", new { id = item.IdInstitucion }, new { @class = "btn btn-danger btn-sm" })
                     </td>
                 </tr>
-            </tbody>
 
-        }
 
-    </table>
+            }
+        </tbody>
+
+        </table>
 </div>
 
