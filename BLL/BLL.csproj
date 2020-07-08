@@ -45,6 +45,9 @@
     <Compile Include="clsConsultas.cs" />
     <Compile Include="clsHorario.cs" />
     <Compile Include="clsInstitucion.cs" />
+    <Compile Include="clsGrado.cs" />
+    <Compile Include="clsMateria.cs" />
+    <Compile Include="clsRol.cs" />
     <Compile Include="clsTipoIdentificacion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

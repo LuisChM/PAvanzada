@@ -13,7 +13,6 @@ namespace Proyecto.Controllers
     {
 
         clsTipoIdentificacion ObjTipoIdentificacion = new clsTipoIdentificacion();
-        clsConsultas ObjConsulta = new clsConsultas();
         // GET: TipoIdentificacion
 
         public ActionResult Index()

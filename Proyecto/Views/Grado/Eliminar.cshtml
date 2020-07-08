@@ -1,4 +1,4 @@
-﻿@model Proyecto.Models.TipoIdentificacion
+﻿@model Proyecto.Models.Grado
 
 @{
     ViewBag.Title = "Eliminar";
@@ -8,15 +8,15 @@
 
 <h3>¿Esta seguro de eliminar?</h3>
 <div>
-    <h4>TipoIdentificacion</h4>
+    <h4>Grado</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.IdTipoIdentificacion)
+            @Html.DisplayNameFor(model => model.IdGrado)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.IdTipoIdentificacion)
+            @Html.DisplayFor(model => model.IdGrado)
         </dd>
 
         <dt>
@@ -40,7 +40,7 @@
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
-        @Html.HiddenFor(model => model.IdTipoIdentificacion)
+        @Html.HiddenFor(model => model.IdGrado)
 
         <div class="form-actions no-color">
             <input type="submit" value="Eliminar" class="btn btn-danger" /> |

@@ -1,20 +1,20 @@
-﻿@model IEnumerable<Proyecto.Models.TipoIdentificacion>
+﻿@model IEnumerable<Proyecto.Models.Grado>
 
 @{
-    ViewBag.Title = "Tipos de identificacion";
+    ViewBag.Title = "Grados";
 }
 
-    <h2>Tipos de identificacion</h2>
+<h2>Grados</h2>
 
 <p>
-    @Html.ActionLink("Agregar nuevo tipo de identificacion", "Crear", "TipoIdentificacion", new { @class = "btn btn-primary" })
+    @Html.ActionLink("Agregar nuevo Grado", "Crear", "Grado", new { @class = "btn btn-primary" })
 </p>
 <div style="overflow-x:auto;">
     <table class="table table-striped text-center">
         <thead class="thead-dark">
             <tr>
                 <th scope="col">
-                    @Html.DisplayNameFor(model => model.IdTipoIdentificacion)
+                    @Html.DisplayNameFor(model => model.IdGrado)
                 </th>
                 <th scope="col">
                     @Html.DisplayNameFor(model => model.Descripcion)
@@ -26,14 +26,14 @@
                     Accion
                 </th>
             </tr>
-        </thead>
+            </thead>
 
         <tbody>
             @foreach (var item in Model)
             {
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem => item.IdTipoIdentificacion)
+                        @Html.DisplayFor(modelItem => item.IdGrado)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Descripcion)
@@ -42,9 +42,9 @@
                         @Html.DisplayFor(modelItem => item.Estado)
                     </td>
                     <td>
-                        @Html.ActionLink("Editar", "Editar", new { id = item.IdTipoIdentificacion }, new { @class = "btn btn-primary btn-sm" })
-                        @Html.ActionLink("Detalle", "Detalle", new { id = item.IdTipoIdentificacion }, new { @class = "btn btn-info btn-sm" })
-                        @Html.ActionLink("Eliminar", "Eliminar", new { id = item.IdTipoIdentificacion }, new { @class = "btn btn-danger btn-sm" })
+                        @Html.ActionLink("Editar", "Editar", new { id = item.IdGrado }, new { @class = "btn btn-primary btn-sm" })
+                        @Html.ActionLink("Detalle", "Detalle", new { id = item.IdGrado }, new { @class = "btn btn-info btn-sm" })
+                        @Html.ActionLink("Eliminar", "Eliminar", new { id = item.IdGrado }, new { @class = "btn btn-danger btn-sm" })
                     </td>
                 </tr>
             }

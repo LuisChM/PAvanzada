@@ -127,12 +127,18 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HorarioController.cs" />
     <Compile Include="Controllers\InstitucionController.cs" />
+    <Compile Include="Controllers\GradoController.cs" />
+    <Compile Include="Controllers\MateriaController.cs" />
+    <Compile Include="Controllers\RolController.cs" />
     <Compile Include="Controllers\TipoIdentificacionController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Horario.cs" />
     <Compile Include="Models\Institucion.cs" />
+    <Compile Include="Models\Grado.cs" />
+    <Compile Include="Models\Materia.cs" />
+    <Compile Include="Models\Rol.cs" />
     <Compile Include="Models\TipoIdentificacion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -286,6 +292,18 @@
     <Content Include="Views\TipoIdentificacion\Editar.cshtml" />
     <Content Include="Views\TipoIdentificacion\Crear.cshtml" />
     <Content Include="Views\TipoIdentificacion\Eliminar.cshtml" />
+    <Content Include="Views\Rol\Index.cshtml" />
+    <Content Include="Views\Rol\Detalle.cshtml" />
+    <Content Include="Views\Rol\Editar.cshtml" />
+    <Content Include="Views\Rol\Crear.cshtml" />
+    <Content Include="Views\Rol\Eliminar.cshtml" />
+    <Content Include="Views\Grado\Crear.cshtml" />
+    <Content Include="Views\Grado\Detalle.cshtml" />
+    <Content Include="Views\Grado\Editar.cshtml" />
+    <Content Include="Views\Grado\Eliminar.cshtml" />
+    <Content Include="Views\Grado\Index.cshtml" />
+    <Content Include="Views\Materia\Index.cshtml" />
+    <Content Include="Views\Materia\Crear.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

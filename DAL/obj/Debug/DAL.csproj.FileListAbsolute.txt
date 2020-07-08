@@ -10,3 +10,4 @@ C:\Users\Felipe\Desktop\Proyecto Progra 5\DAL\bin\Debug\DAL.pdb
 C:\Users\Felipe\Desktop\Proyecto Progra 5\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
 C:\Users\Felipe\Desktop\Proyecto Progra 5\DAL\obj\Debug\DAL.dll
 C:\Users\Felipe\Desktop\Proyecto Progra 5\DAL\obj\Debug\DAL.pdb
+C:\Users\Felipe\Desktop\Proyecto Progra 5\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
