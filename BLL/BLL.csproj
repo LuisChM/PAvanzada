@@ -47,8 +47,11 @@
     <Compile Include="clsInstitucion.cs" />
     <Compile Include="clsGrado.cs" />
     <Compile Include="clsMateria.cs" />
+    <Compile Include="clsMateriaGrado.cs" />
     <Compile Include="clsRol.cs" />
+    <Compile Include="clsTipoOperacion.cs" />
     <Compile Include="clsTipoIdentificacion.cs" />
+    <Compile Include="clsUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

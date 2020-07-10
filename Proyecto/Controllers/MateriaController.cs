@@ -180,8 +180,8 @@ namespace Proyecto.Controllers
         #region Datos
         private List<ConsultarInstitucionResult> ConsultarInstitucion()
         {
-            var genders = ObjInstitucion.ConsultarInstitucion();
-            return genders;
+            var instituciones = ObjInstitucion.ConsultarInstitucion();
+            return instituciones;
         }
 
         #endregion

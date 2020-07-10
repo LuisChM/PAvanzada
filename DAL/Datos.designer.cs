@@ -600,6 +600,13 @@ namespace DAL
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idTipoIdentificacion);
 			return ((int)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.EliminaTipoOperacion")]
+		public int EliminaTipoOperacion([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdTipoOperacion", DbType="Int")] System.Nullable<int> idTipoOperacion)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idTipoOperacion);
+			return ((int)(result.ReturnValue));
+		}
 	}
 	
 	public partial class ProvinciasResult

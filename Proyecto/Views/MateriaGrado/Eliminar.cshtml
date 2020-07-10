@@ -1,0 +1,50 @@
+﻿@model Proyecto.Models.MateriaGrado
+
+@{
+    ViewBag.Title = "Eliminar";
+}
+
+<h2>Eliminar</h2>
+
+<h3>¿Esta seguro de eliminar?</h3>
+<div>
+    <h4>MateriaGrado</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IdMateriaGrado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdMateriaGrado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdMateria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdMateria)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdGrado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdGrado)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.IdMateriaGrado)
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+            @Html.ActionLink("Volver", "Index")
+        </div>
+    }
+</div>

@@ -670,4 +670,8 @@
     <Parameter Name="IdTipoIdentificacion" Parameter="idTipoIdentificacion" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.EliminaTipoOperacion" Method="EliminaTipoOperacion">
+    <Parameter Name="IdTipoOperacion" Parameter="idTipoOperacion" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
 </Database>

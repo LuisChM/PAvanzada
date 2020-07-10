@@ -129,8 +129,11 @@
     <Compile Include="Controllers\InstitucionController.cs" />
     <Compile Include="Controllers\GradoController.cs" />
     <Compile Include="Controllers\MateriaController.cs" />
+    <Compile Include="Controllers\MateriaGradoController.cs" />
     <Compile Include="Controllers\RolController.cs" />
+    <Compile Include="Controllers\TipoOperacion.cs" />
     <Compile Include="Controllers\TipoIdentificacionController.cs" />
+    <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -138,8 +141,11 @@
     <Compile Include="Models\Institucion.cs" />
     <Compile Include="Models\Grado.cs" />
     <Compile Include="Models\Materia.cs" />
+    <Compile Include="Models\MateriaGrado.cs" />
     <Compile Include="Models\Rol.cs" />
+    <Compile Include="Models\TipoOperacion.cs" />
     <Compile Include="Models\TipoIdentificacion.cs" />
+    <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -304,6 +310,24 @@
     <Content Include="Views\Grado\Index.cshtml" />
     <Content Include="Views\Materia\Index.cshtml" />
     <Content Include="Views\Materia\Crear.cshtml" />
+    <Content Include="Views\Materia\Editar.cshtml" />
+    <Content Include="Views\Materia\Eliminar.cshtml" />
+    <Content Include="Views\Materia\Detalle.cshtml" />
+    <Content Include="Views\MateriaGrado\Index.cshtml" />
+    <Content Include="Views\MateriaGrado\Detalle.cshtml" />
+    <Content Include="Views\MateriaGrado\Editar.cshtml" />
+    <Content Include="Views\MateriaGrado\Crear.cshtml" />
+    <Content Include="Views\MateriaGrado\Eliminar.cshtml" />
+    <Content Include="Views\TipoOperacion\Crear.cshtml" />
+    <Content Include="Views\TipoOperacion\Detalle.cshtml" />
+    <Content Include="Views\TipoOperacion\Editar.cshtml" />
+    <Content Include="Views\TipoOperacion\Eliminar.cshtml" />
+    <Content Include="Views\TipoOperacion\Index.cshtml" />
+    <Content Include="Views\Usuario\Index.cshtml" />
+    <Content Include="Views\Usuario\Detalle.cshtml" />
+    <Content Include="Views\Usuario\Editar.cshtml" />
+    <Content Include="Views\Usuario\Eliminar.cshtml" />
+    <Content Include="Views\Usuario\Crear.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
