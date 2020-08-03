@@ -1,0 +1,72 @@
+﻿@model IEnumerable<Proyecto.Models.Calificacion>
+
+@{
+    ViewBag.Title = "Calificaciones";
+}
+
+    <h2>Calificaciones</h2>
+
+    <p>
+        @Html.ActionLink("Agregar nueva calificacion", "Crear", "Calificacion", new { @class = "btn btn-primary" })
+    </p>
+    <div style="overflow-x:auto;">
+        <table class="table table-striped text-center">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">
+                        @Html.DisplayNameFor(model => model.IdCalificacion)
+                    </th>
+                    <th scope="col">
+                        @Html.DisplayNameFor(model => model.IdTipoOperacion)
+                    </th>
+                  <th scope="col">
+                        @Html.DisplayNameFor(model => model.IdEstudiante)
+                    </th>
+                  <th scope="col">
+                        @Html.DisplayNameFor(model => model.IdDocente)
+                    </th>
+                  <th scope="col">
+                        @Html.DisplayNameFor(model => model.IdMateria)
+                    </th>
+                  <th scope="col">
+                        @Html.DisplayNameFor(model => model.Nota)
+                    </th>
+                  <th scope="col">
+                        @Html.DisplayNameFor(model => model.Fecha)
+                    </th>
+                  <th scope="col">Accion</th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdCalificacion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdTipoOperacion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdEstudiante)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdDocente)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdMateria)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nota)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fecha)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Editar", new { id = item.IdCalificacion }, new { @class = "btn btn-primary btn-sm" })
+                    @Html.ActionLink("Detalle", "Detalle", new { id = item.IdCalificacion }, new { @class = "btn btn-info btn-sm" })
+                    @Html.ActionLink("Eliminar", "Eliminar", new { id = item.IdCalificacion }, new { @class = "btn btn-danger btn-sm" })
+                </td>
+            </tr>
+                }
+
+        </table>

@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using BLL;
 using DAL;
 using Proyecto.Models;
+using Proyecto.Tools;
 
 namespace Proyecto.Controllers
 {
@@ -159,9 +161,12 @@ namespace Proyecto.Controllers
         [HttpPost]
         public ActionResult Crear(Usuario usuario)
         {
+            var SecretKey = ConfigurationManager.AppSettings["SecretKey"];
+            var ClaveEncriptada = Seguridad.EncryptString(SecretKey, usuario.Clave);
+
             try
             {
-                if (ObjUsuario.AgregarUsuario(usuario.IdInstitucion, usuario.IdTipoIdentificacion, usuario.Identificacion, usuario.Nombre, usuario.Apellido1, usuario.Apellido2, usuario.Clave, usuario.Telefono, usuario.Direccion, usuario.Correo, usuario.FechaNacimiento, usuario.Estado))
+                if (ObjUsuario.AgregarUsuario(usuario.IdInstitucion, usuario.IdTipoIdentificacion, usuario.Identificacion, usuario.Nombre, usuario.Apellido1, usuario.Apellido2, ClaveEncriptada, usuario.Telefono, usuario.Direccion, usuario.Correo, usuario.FechaNacimiento, usuario.Estado))
                 {
                     return RedirectToAction("Index");
                 }

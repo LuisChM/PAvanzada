@@ -76,6 +76,20 @@ namespace BLL
 				return false;
 			}
 		}
+		public ValidaUsuarioResult ValidaUsuario(string Correo, string Clave)
+		{
+			try
+			{
+				DatosDataContext db = new DatosDataContext();
+				ValidaUsuarioResult dato = db.ValidaUsuario(Correo, Clave).FirstOrDefault();
+				return dato;
+			}
+			catch (Exception ex)
+			{
+
+				throw;
+			}
+		}
 
 	}
 }

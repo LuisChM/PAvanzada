@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsCalificacion.cs" />
     <Compile Include="clsConsultas.cs" />
     <Compile Include="clsHorario.cs" />
     <Compile Include="clsInstitucion.cs" />
@@ -52,6 +53,7 @@
     <Compile Include="clsTipoOperacion.cs" />
     <Compile Include="clsTipoIdentificacion.cs" />
     <Compile Include="clsUsuario.cs" />
+    <Compile Include="clsUsuarioRol.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

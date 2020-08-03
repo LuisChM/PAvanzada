@@ -23,59 +23,6 @@ namespace BLL
 				throw;
 			}
 		}
-		public ConsultaTipoIdentificacionResult ConsultaTipoIdentificacion(int IdTipoIdentificacion)
-		{
-			try
-			{
-				DatosDataContext db = new DatosDataContext();
-				var dato = db.ConsultaTipoIdentificacion(IdTipoIdentificacion).FirstOrDefault();
-				return dato;
-			}
-			catch (Exception ex)
-			{
-
-				throw;
-			}
-		}
-		public bool EliminarTipoIdentificacion(int IdTipoIdentificacion)
-		{
-			try
-			{
-				DatosDataContext db = new DatosDataContext();
-				var dato = db.EliminaTipoIdentificacion(IdTipoIdentificacion);
-				return true;
-			}
-			catch (Exception ex)
-			{
-				return false;
-			}
-		}
-		public bool ActualizarTipoIdentificacion(int IdTipoIdentificacion, string Descripcion, bool Estado)
-		{
-			try
-			{
-				DatosDataContext db = new DatosDataContext();
-				var dato = db.ActualizarTipoIdentificacion(IdTipoIdentificacion, Descripcion, Estado);
-				return true;
-			}
-			catch (Exception ex)
-			{
-				return false;
-			}
-		}
-		public bool AgregarTipoIdentificacion(string Descripcion, bool Estado)
-		{
-			try
-			{
-				DatosDataContext db = new DatosDataContext();
-				var dato = db.AgregarTipoIdentificacion(Descripcion, Estado);
-				return true;
-			}
-			catch (Exception ex)
-			{
-				return false;
-			}
-		}
 
 	}
 }

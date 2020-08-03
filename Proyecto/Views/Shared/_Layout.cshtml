@@ -15,6 +15,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
+
             <ul class="navbar-nav">
                 <li class="nav-item ">
                     <a class="nav-link" href="/Home/Index">Inicio</a>
@@ -46,20 +47,40 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/TipoOperacion/Index">Tipo de Operación</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Calificacion/Index">Calificación</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/UsuarioRol/Index">Asignar roles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Usuario/Index">Crear usuario</a>
+                </li>
             </ul>
+            <ul class="nav navbar-nav ">
+                <li>
+                    <a href="#" class="mr-2">
+                        <span class="hidden-xs text-primary">Bienvenido: @Html.ViewContext.HttpContext.User.Identity.Name</span>
+                    </a>
+                </li>
+                <li>
+                    <div class="panel-heading">
+                        <a href="@Url.Action("Salir", "Login")" class="btn btn-danger btn-sm panel-righ">Salir</a>
+                    </div>
+                </li>
+            </ul>
+
         </div>
     </nav>
 
     <div class="container mt-4">
         @RenderBody()
-
-
     </div>
 
     <script src="~/Scripts/jquery-3.5.1.min.js"></script>
     <script src="~/Scripts/popper.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
-      @RenderSection("scripts", required: false)
+    @RenderSection("scripts", required: false)
 
 </body>
 </html>

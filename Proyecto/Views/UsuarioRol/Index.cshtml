@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Proyecto.Models.UsuarioRol>
+
+@{
+    ViewBag.Title = "Usuario Rol";
+}
+
+    <h2>Usuario Rol</h2>
+
+    <p>
+        @Html.ActionLink("Asignar un rol a usuario", "Crear", "UsuarioRol", new { @class = "btn btn-primary" })
+    </p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdUsuarioRol)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdUsuario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdRol)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdUsuarioRol)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdUsuario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdRol)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Editar", new { id = item.IdUsuarioRol }, new { @class = "btn btn-primary btn-sm" })
+            @Html.ActionLink("Detalle", "Detalle", new { id = item.IdUsuarioRol }, new { @class = "btn btn-info btn-sm" })
+            @Html.ActionLink("Eliminar", "Eliminar", new { id = item.IdUsuarioRol }, new { @class = "btn btn-danger btn-sm" })
+        </td>
+    </tr>
+}
+
+</table>

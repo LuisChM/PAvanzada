@@ -23,59 +23,6 @@ namespace BLL
 				throw;
 			}
 		}
-		public ConsultaGradoResult ConsultaGrado(int IdGrado)
-		{
-			try
-			{
-				DatosDataContext db = new DatosDataContext();
-				var dato = db.ConsultaGrado(IdGrado).FirstOrDefault();
-				return dato;
-			}
-			catch (Exception ex)
-			{
-
-				throw;
-			}
-		}
-		public bool EliminarGrado(int IdGrado)
-		{
-			try
-			{
-				DatosDataContext db = new DatosDataContext();
-				var dato = db.EliminaGrado(IdGrado);
-				return true;
-			}
-			catch (Exception ex)
-			{
-				return false;
-			}
-		}
-		public bool ActualizarGrado(int IdGrado, string Descripcion, bool Estado)
-		{
-			try
-			{
-				DatosDataContext db = new DatosDataContext();
-				var dato = db.ActualizarGrado(IdGrado, Descripcion, Estado);
-				return true;
-			}
-			catch (Exception ex)
-			{
-				return false;
-			}
-		}
-		public bool AgregarGrado(string Descripcion, bool Estado)
-		{
-			try
-			{
-				DatosDataContext db = new DatosDataContext();
-				var dato = db.AgregarGrado(Descripcion, Estado);
-				return true;
-			}
-			catch (Exception ex)
-			{
-				return false;
-			}
-		}
 
 	}
 }
