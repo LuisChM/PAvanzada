@@ -4,37 +4,47 @@
 @{
     Layout = null;
 }
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Progra 5</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+</head>
+<body>
 
-<style>
-    .form-signin {
-        margin: 0 auto;
-        max-width: 330px;
-        padding: 15px;
-    }
-</style>
-<div class="container-fluid">
-    @using (Html.BeginForm("Login", "Login", FormMethod.Post, new { @class = "form-signin", role = "form" }))
-    {
-        @Html.AntiForgeryToken()
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <h2 class="form-signin-heading">Ingrese los Datos</h2>
-        <div class="form-group form-header input-group-lg">
-            @Html.TextBoxFor(m => m.Correo, new { @class = "form-control", placeholder = "Usuario", type = "email", tabindex = 1 })
-            @Html.ValidationMessageFor(m => m.Correo, "", new { @class = "text-danger" })
+    <div class="container">
+        <div class="row d-flex justify-content-center align-content-center">
+
+            @using (Html.BeginForm("Login", "Login", FormMethod.Post, new { @class = "form-signin", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <h2 class="form-signin-heading">Ingrese los Datos</h2>
+                <div class="form-group form-header input-group-lg">
+                    @Html.TextBoxFor(m => m.Correo, new { @class = "form-control", placeholder = "Usuario", type = "email", tabindex = 1 })
+                    @Html.ValidationMessageFor(m => m.Correo, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group form-header input-group-lg">
+                    @Html.PasswordFor(m => m.Clave, new { @class = "form-control", placeholder = "Contraseña", tabindex = 2 })
+                    @Html.ValidationMessageFor(m => m.Clave, "", new { @class = "text-danger" })
+                </div>
+                <div class="remember">
+                    @Html.CheckBoxFor(m => m.Recordarme, htmlAttributes: new { @id = "login-remember", tabindex = 3 })
+                    @Html.LabelFor(m => m.Recordarme)
+                </div>
+                <button type="submit" id="LoginButton" class="btn btn-lg btn-success btn-block" tabindex="4">Ingresar</button>
+            }
         </div>
-        <div class="form-group form-header input-group-lg">
-            @Html.PasswordFor(m => m.Clave, new { @class = "form-control", placeholder = "Contraseña", tabindex = 2 })
-            @Html.ValidationMessageFor(m => m.Clave, "", new { @class = "text-danger" })
-        </div>
-        <div class="remember">
-            @Html.CheckBoxFor(m => m.Recordarme, htmlAttributes: new { @id = "login-remember", tabindex = 3 })
-            @Html.LabelFor(m => m.Recordarme)
-        </div>
-        <button type="submit" id="LoginButton" class="btn btn-lg btn-success btn-block" tabindex="4">Ingresar</button>
-    }
-    
-</div>
-<!-- /.container-fluid -->
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+        
+    </div>
+
+
+    <script src="~/Scripts/jquery-3.5.1.min.js"></script>
+    <script src="~/Scripts/popper.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+</body>
+</html>

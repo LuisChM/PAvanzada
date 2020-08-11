@@ -32,8 +32,8 @@ namespace Proyecto.Controllers
                 {
                     UsuarioRol usuarioRol = new UsuarioRol();
                     usuarioRol.IdUsuarioRol = item.IdUsuarioRol;
-                    usuarioRol.IdUsuario = item.IdUsuario;
-                    usuarioRol.IdRol = item.IdRol;
+                    usuarioRol.Nombre = item.Nombre;
+                    usuarioRol.Descripcion = item.Descripcion;
 
                     ListaUsuarioRols.Add(usuarioRol);
                 }
@@ -58,8 +58,8 @@ namespace Proyecto.Controllers
 
                 UsuarioRol usuarioRol = new UsuarioRol();
                 usuarioRol.IdUsuarioRol = dato.IdUsuarioRol;
-                usuarioRol.IdUsuario = dato.IdUsuario;
-                usuarioRol.IdRol = dato.IdRol;
+                usuarioRol.Nombre = dato.Nombre;
+                usuarioRol.Descripcion = dato.Descripcion;
 
                 ViewBag.Usuario = ConsultarUsuario();
                 ViewBag.Rol = ConsultarRol();

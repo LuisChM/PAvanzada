@@ -22,3 +22,14 @@ select,
 textarea {
     max-width: 280px;
 }
+.img-btn {
+    width: 150px;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+span {
+    color: black;
+}
