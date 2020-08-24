@@ -18,7 +18,7 @@ namespace Proyecto.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Proyecto Programación Avanzada en Web (SC-701)";
 
             return View();
         }

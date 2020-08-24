@@ -14,49 +14,36 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-            @if (Request.IsAuthenticated)
-            {
+        @if (Request.IsAuthenticated)
+        {
 
-        <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mr-auto">
-                    @if (User.IsInRole("Director"))
-                    {
                     <li class="nav-item ">
                         <a class="nav-link" href="/Home/Index">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/Home/About">Acerca de</a>
+                        <a class="nav-link" href="/Home/About">Sobre mí</a>
                     </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" href="/Horario/Index">Horario</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/Institucion/Index">Institución</a>
-                    </li>
-
+                    @if (User.IsInRole("Director"))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Institucion/Index">Institución</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Materia/Index">Materia</a>
+                        </li>   
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Usuario/Index">Crear usuario</a>
+                        </li>
                     }
-                    <li class="nav-item">
-                        <a class="nav-link" href="/Materia/Index">Materia</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/MateriaGrado/Index">Materia Grado</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/Calificacion/Index">Calificación</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/UsuarioRol/Index">Asignar roles</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/Usuario/Index">Crear usuario</a>
-                    </li>
-                </ul>
-            
+                    </ul>
+
                 <div class="navbarNav">
                     <a href="@Url.Action("Salir", "Login")" class="btn btn-danger btn-sm">Salir</a>
                 </div>
             </div>
-            }
+        }
     </nav>
 
     <div class="container mt-4">

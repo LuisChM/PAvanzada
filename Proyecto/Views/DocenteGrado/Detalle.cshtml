@@ -1,0 +1,42 @@
+﻿@model Proyecto.Models.DocenteGrado
+
+@{
+    ViewBag.Title = "Detalle";
+}
+
+<h2>Detalle</h2>
+
+<div>
+    <h4>DocenteGrado</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IdDocenteGrado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdDocenteGrado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdDocente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdDocente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdGrado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdGrado)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Editar", new { id = Model.IdDocenteGrado }, new { @class = "btn btn-primary" }) |
+    @Html.ActionLink("Volver", "Index")
+</p>

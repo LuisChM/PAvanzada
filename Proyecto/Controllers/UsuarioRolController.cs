@@ -9,7 +9,8 @@ using Proyecto.Models;
 
 namespace Proyecto.Controllers
 {
-    
+    [Authorize]
+    [AuthorizeRole(Role.Director)]
     public class UsuarioRolController : Controller
     {
 

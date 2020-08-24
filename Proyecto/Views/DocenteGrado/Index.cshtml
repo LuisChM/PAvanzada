@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Proyecto.Models.DocenteGrado>
+
+@{
+    ViewBag.Title = "Docente grado";
+}
+
+<h2>Docente grado</h2>
+
+<p>
+    @Html.ActionLink("Agregar asignar materias según el grado", "Crear", "DocenteGrado", new { @class = "btn btn-primary" })
+</p>
+<div style="overflow-x:auto;">
+    <table class="table table-striped text-center">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.IdDocenteGrado)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.IdDocente)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.IdGrado)
+                </th>
+                <th scope="col"> Accion</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IdDocenteGrado)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IdDocente)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IdGrado)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Editar", "Editar", new { id = item.IdDocenteGrado }, new { @class = "btn btn-primary btn-sm" })
+                        @Html.ActionLink("Detalle", "Detalle", new { id = item.IdDocenteGrado }, new { @class = "btn btn-info btn-sm" })
+                        @Html.ActionLink("Eliminar", "Eliminar", new { id = item.IdDocenteGrado }, new { @class = "btn btn-danger btn-sm" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+</div>

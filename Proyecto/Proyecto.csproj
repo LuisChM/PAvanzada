@@ -135,6 +135,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CalificacionController.cs" />
     <Compile Include="Controllers\DocenteController.cs" />
+    <Compile Include="Controllers\DocenteGradoController.cs" />
     <Compile Include="Controllers\EstudianteController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HorarioController.cs" />
@@ -177,6 +178,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Imagenes\25101.jpg" />
     <Content Include="Imagenes\profesor.svg" />
     <Content Include="Imagenes\estudiante.svg" />
     <Content Include="Imagenes\horario.svg" />
@@ -371,10 +373,19 @@
     <Content Include="Views\Docente\Editar.cshtml" />
     <Content Include="Views\Docente\Crear.cshtml" />
     <Content Include="Views\Docente\Eliminar.cshtml" />
+    <Content Include="Views\Estudiante\Index.cshtml" />
+    <Content Include="Views\Estudiante\Detalle.cshtml" />
+    <Content Include="Views\Estudiante\Editar.cshtml" />
+    <Content Include="Views\Estudiante\Crear.cshtml" />
+    <Content Include="Views\Estudiante\Eliminar.cshtml" />
+    <Content Include="Views\DocenteGrado\Index.cshtml" />
+    <Content Include="Views\DocenteGrado\Detalle.cshtml" />
+    <Content Include="Views\DocenteGrado\Editar.cshtml" />
+    <Content Include="Views\DocenteGrado\Crear.cshtml" />
+    <Content Include="Views\DocenteGrado\Eliminar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Estudiante\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

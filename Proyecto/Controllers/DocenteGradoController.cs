@@ -11,34 +11,34 @@ namespace Proyecto.Controllers
 {
     [Authorize]
     [AuthorizeRole(Role.Director)]
-    public class MateriaGradoController : Controller
+    public class DocenteGradoController : Controller
     {
 
-        clsMateriaGrado ObjMateriaGrado = new clsMateriaGrado();
-        clsMateria ObjMateria = new clsMateria();
+        clsDocenteGrado ObjDocenteGrado = new clsDocenteGrado();
+        clsDocente ObjDocente = new clsDocente();
         clsGrado ObjGrado = new clsGrado();
 
 
-        // GET: MateriaGrado
+        // GET: DocenteGrado
 
         public ActionResult Index()
         {
             try
             {
-                var datos = ObjMateriaGrado.ConsultarMateriaGrado();
+                var datos = ObjDocenteGrado.ConsultarDocenteGrado();
 
-                List<MateriaGrado> ListaMateriaGrados = new List<MateriaGrado>();
+                List<DocenteGrado> ListaDocenteGrados = new List<DocenteGrado>();
 
                 foreach (var item in datos)
                 {
-                    MateriaGrado materiaGrado = new MateriaGrado();
-                    materiaGrado.IdMateriaGrado = item.IdMateriaGrado;
-                    materiaGrado.DescripcionMateria = item.DescripcionMateria;
-                    materiaGrado.Descripcion = item.Descripcion;
+                    DocenteGrado docenteGrado = new DocenteGrado();
+                   docenteGrado.IdDocenteGrado = item.IdDocenteGrado;
+                    docenteGrado.IdDocente = item.IdDocente;
+                    docenteGrado.IdGrado = item.IdGrado;
 
-                    ListaMateriaGrados.Add(materiaGrado);
+                    ListaDocenteGrados.Add(docenteGrado);
                 }
-                return View(ListaMateriaGrados);
+                return View(ListaDocenteGrados);
             }
             catch (Exception)
             {
@@ -55,17 +55,16 @@ namespace Proyecto.Controllers
             }
             else
             {
-                var dato = ObjMateriaGrado.ConsultaMateriaGrado(Convert.ToInt32(id));
+                var dato = ObjDocenteGrado.ConsultaDocenteGrado(Convert.ToInt32(id));
 
-                MateriaGrado materiaGrado = new MateriaGrado();
-                materiaGrado.IdMateriaGrado = dato.IdMateriaGrado;
-                materiaGrado.DescripcionMateria = dato.DescripcionMateria;
-                materiaGrado.Descripcion = dato.Descripcion;
-
-                ViewBag.Materia = ConsultarMateria();
+                DocenteGrado docenteGrado = new DocenteGrado();
+               docenteGrado.IdDocenteGrado = dato.IdDocenteGrado;
+                docenteGrado.IdDocente = dato.IdDocente;
+                docenteGrado.IdGrado = dato.IdGrado;
+                ViewBag.Docente = ConsultarDocente();
                 ViewBag.Grado = ConsultarGrado();
 
-                return View(materiaGrado);
+                return View(docenteGrado);
             }
 
         }
@@ -77,32 +76,32 @@ namespace Proyecto.Controllers
             }
             else
             {
-                var dato = ObjMateriaGrado.ConsultaMateriaGrado(Convert.ToInt32(id));
+                var dato = ObjDocenteGrado.ConsultaDocenteGrado(Convert.ToInt32(id));
 
-                MateriaGrado materiaGrado = new MateriaGrado();
-                materiaGrado.IdMateriaGrado = dato.IdMateriaGrado;
-                materiaGrado.IdMateria = dato.IdMateria;
-                materiaGrado.IdGrado = dato.IdGrado;
+                DocenteGrado docenteGrado = new DocenteGrado();
+               docenteGrado.IdDocenteGrado = dato.IdDocenteGrado;
+               docenteGrado.IdDocente = dato.IdDocente;
+               docenteGrado.IdGrado = dato.IdGrado;
 
-                ViewBag.Materia = ConsultarMateria();
+                ViewBag.Docente = ConsultarDocente();
                 ViewBag.Grado = ConsultarGrado();
 
-                return View(materiaGrado);
+                return View(docenteGrado);
             }
 
         }
         [HttpPost]
-        public ActionResult Editar(MateriaGrado materiaGrado)
+        public ActionResult Editar(DocenteGrado docenteGrado)
         {
             try
             {
-                if (ObjMateriaGrado.ActualizarMateriaGrado(materiaGrado.IdMateriaGrado, materiaGrado.IdMateria, materiaGrado.IdGrado))
+                if (ObjDocenteGrado.ActualizarDocenteGrado(docenteGrado.IdDocenteGrado,docenteGrado.IdDocente,docenteGrado.IdGrado))
                 {
                     return RedirectToAction("Index");
                 }
                 else
                 {
-                    ViewBag.Materia = ConsultarMateria();
+                    ViewBag.Docente = ConsultarDocente();
                     ViewBag.Grado = ConsultarGrado();
 
                     return View();
@@ -110,7 +109,7 @@ namespace Proyecto.Controllers
             }
             catch (Exception)
             {
-                ViewBag.Materia = ConsultarMateria();
+                ViewBag.Docente = ConsultarDocente();
                 ViewBag.Grado = ConsultarGrado();
 
                 return View();
@@ -121,24 +120,24 @@ namespace Proyecto.Controllers
         }
         public ActionResult Crear()
         {
-            ViewBag.Materia = ConsultarMateria();
+            ViewBag.Docente = ConsultarDocente();
             ViewBag.Grado = ConsultarGrado();
 
             return View();
 
         }
         [HttpPost]
-        public ActionResult Crear(MateriaGrado materiaGrado)
+        public ActionResult Crear(DocenteGrado docenteGrado)
         {
             try
             {
-                if (ObjMateriaGrado.AgregarMateriaGrado(materiaGrado.IdMateria, materiaGrado.IdGrado))
+                if (ObjDocenteGrado.AgregarDocenteGrado(docenteGrado.IdDocente,docenteGrado.IdGrado))
                 {
                     return RedirectToAction("Index");
                 }
                 else
                 {
-                    ViewBag.Materia = ConsultarMateria();
+                    ViewBag.Docente = ConsultarDocente();
                     ViewBag.Grado = ConsultarGrado();
 
                     return View();
@@ -160,21 +159,21 @@ namespace Proyecto.Controllers
             }
             else
             {
-                var dato = ObjMateriaGrado.ConsultaMateriaGrado(Convert.ToInt32(id));
+                var dato = ObjDocenteGrado.ConsultaDocenteGrado(Convert.ToInt32(id));
 
-                MateriaGrado materiaGrado = new MateriaGrado();
-                materiaGrado.IdMateriaGrado = dato.IdMateriaGrado;
-                materiaGrado.IdMateria = dato.IdMateria;
-                materiaGrado.IdGrado = dato.IdGrado;
+                DocenteGrado docenteGrado = new DocenteGrado();
+               docenteGrado.IdDocenteGrado = dato.IdDocenteGrado;
+               docenteGrado.IdDocente = dato.IdDocente;
+               docenteGrado.IdGrado = dato.IdGrado;
 
-                return View(materiaGrado);
+                return View(docenteGrado);
             }
 
         }
         [HttpPost]
-        public ActionResult Eliminar(MateriaGrado materiaGrado)
+        public ActionResult Eliminar(DocenteGrado docenteGrado)
         {
-            if (ObjMateriaGrado.EliminarMateriaGrado(materiaGrado.IdMateriaGrado))
+            if (ObjDocenteGrado.EliminarDocenteGrado(docenteGrado.IdDocenteGrado))
             {
                 return RedirectToAction("Index");
             }
@@ -190,10 +189,10 @@ namespace Proyecto.Controllers
             var grados = ObjGrado.ConsultarGrado();
             return grados;
         }
-        private List<ConsultarMateriaResult> ConsultarMateria()
+        private List<ConsultarDocenteResult> ConsultarDocente()
         {
-            var materias = ObjMateria.ConsultarMateria();
-            return materias;
+            var docentes = ObjDocente.ConsultarDocente();
+            return docentes;
         }
 
         #endregion

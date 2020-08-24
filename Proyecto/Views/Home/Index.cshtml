@@ -6,35 +6,61 @@
         <h2>Hola @Html.ViewContext.HttpContext.User.Identity.Name</h2>
         <h5>¿Qué desea hacer hoy?</h5>
     </div>
-    <div class="row justify-content-around mt-4">
-        <div class=" d-flex align-items-center border p-3 mb-2">
-            <a href="#" class="d-flex flex-column ">
-                <img src="~/Imagenes/estudiante.svg" alt="icono" class="img-btn">
-                <span>Registrar alumno</span>
-            </a>
-        </div>
-        <div class=" d-flex align-items-center border p-3 mb-2">
-            <a href="#" class="d-flex flex-column ">
-                <img src="~/Imagenes/profesor.svg" alt="icono" class="img-btn">
-                <span>Registrar docente</span>
-            </a>
-        </div>
-        <div class=" d-flex align-items-center border p-3 mb-2">
-            <a href="#" class="d-flex flex-column ">
-                <img src="~/Imagenes/horario.svg" alt="icono" class="img-btn">
-                <span>Horario</span>
-            </a>
-        </div>
-        <div class=" d-flex align-items-center border p-3 mb-2">
-            <a href="#" class="d-flex flex-column ">
-                <img src="~/Imagenes/materias.svg" alt="icono" class="img-btn">
-                <span>Horario</span>
-            </a>
-        </div>
+        <div class="row justify-content-around mt-4">
+    @if (User.IsInRole("Director"))
+    {
+            <div class=" d-flex align-items-center border p-3 mb-2">
+                <a href="/Estudiante/Index" class="d-flex flex-column ">
+                    <img src="~/Imagenes/estudiante.svg" alt="icono" class="img-btn">
+                    <span>Asignar alumno grado</span>
+                </a>
+            </div>
+            <div class=" d-flex align-items-center border p-3 mb-2">
+                <a href="/Docente/Index" class="d-flex flex-column ">
+                    <img src="~/Imagenes/profesor.svg" alt="icono" class="img-btn">
+                    <span>Asignar docente materia</span>
+                </a>
+            </div>
+            <div class=" d-flex align-items-center border p-3 mb-2">
+                <a href="/MateriaGrado/Index" class="d-flex flex-column ">
+                    <img src="~/Imagenes/materias.svg" alt="icono" class="img-btn">
+                    <span>Asignar grado a materia</span>
+                </a>
+            </div>
+            <div class=" d-flex align-items-center border p-3 mb-2">
+                <a href="/UsuarioRol/Index" class="d-flex flex-column ">
+                    <img src="~/Imagenes/grupo.svg" alt="icono" class="img-btn">
+                    <span>Dar Rol a los usuarios</span>
+                </a>
+            </div>
+            }
+            @if (User.IsInRole("Profesor") || User.IsInRole("Estudiante"))
+            {
+                <div class=" d-flex align-items-center border p-3 mb-2">
+                    <a href="/Horario/Index" class="d-flex flex-column ">
+                        <img src="~/Imagenes/horario.svg" alt="icono" class="img-btn">
+                        <span>Horario</span>
+                    </a>
+                </div>
 
+
+                <div class=" d-flex align-items-center border p-3 mb-2">
+                    <a href="/Calificacion/Index" class="d-flex flex-column ">
+                        <img src="~/Imagenes/calificaciones.svg" alt="icono" class="img-btn">
+                        <span>Calificaciones</span>
+                    </a>
+                </div>
+
+                <div class=" d-flex align-items-center border p-3 mb-2">
+                    <a href="#" class="d-flex flex-column ">
+                        <img src="~/Imagenes/boleta.svg" alt="icono" class="img-btn">
+                        <span>Notas</span>
+                    </a>
+                </div>
+            }
+
+
+        </div>
 
 
     </div>
-
-
-</div>

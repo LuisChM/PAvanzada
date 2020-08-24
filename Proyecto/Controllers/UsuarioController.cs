@@ -11,6 +11,8 @@ using Proyecto.Tools;
 
 namespace Proyecto.Controllers
 {
+    [Authorize]
+    [AuthorizeRole(Role.Director)]
     public class UsuarioController : Controller
     {
 

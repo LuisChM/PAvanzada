@@ -9,6 +9,8 @@ using Proyecto.Models;
 
 namespace Proyecto.Controllers
 {
+    [Authorize]
+    [AuthorizeRole(Role.Profesor, Role.Estudiante)]
     public class CalificacionController : Controller
     {
 
