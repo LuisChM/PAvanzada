@@ -50,12 +50,12 @@ namespace BLL
 				return false;
 			}
 		}
-		public bool ActualizarMateria(int IdMateria, string Descripcion, int? IdInstitucion, bool Estado)
+		public bool ActualizarMateria(int IdMateria, string DescripcionMateria, int? IdInstitucion, bool Estado)
 		{
 			try
 			{
 				DatosDataContext db = new DatosDataContext();
-				var dato = db.ActualizarMateria(IdMateria, Descripcion, IdInstitucion, Estado);
+				var dato = db.ActualizarMateria(IdMateria, DescripcionMateria, IdInstitucion, Estado);
 				return true;
 			}
 			catch (Exception ex)
@@ -63,12 +63,12 @@ namespace BLL
 				return false;
 			}
 		}
-		public bool AgregarMateria(string Descripcion, int? IdInstitucion, bool Estado)
+		public bool AgregarMateria(string DescripcionMateria, int? IdInstitucion, bool Estado)
 		{
 			try
 			{
 				DatosDataContext db = new DatosDataContext();
-				var dato = db.AgregarMateria(Descripcion, IdInstitucion, Estado);
+				var dato = db.AgregarMateria(DescripcionMateria, IdInstitucion, Estado);
 				return true;
 			}
 			catch (Exception ex)

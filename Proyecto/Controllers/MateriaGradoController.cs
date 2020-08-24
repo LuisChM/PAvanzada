@@ -31,8 +31,8 @@ namespace Proyecto.Controllers
                 {
                     MateriaGrado materiaGrado = new MateriaGrado();
                     materiaGrado.IdMateriaGrado = item.IdMateriaGrado;
-                    materiaGrado.IdMateria = item.IdMateria;
-                    materiaGrado.IdGrado = item.IdGrado;
+                    materiaGrado.DescripcionMateria = item.DescripcionMateria;
+                    materiaGrado.Descripcion = item.Descripcion;
 
                     ListaMateriaGrados.Add(materiaGrado);
                 }
@@ -57,8 +57,8 @@ namespace Proyecto.Controllers
 
                 MateriaGrado materiaGrado = new MateriaGrado();
                 materiaGrado.IdMateriaGrado = dato.IdMateriaGrado;
-                materiaGrado.IdMateria = dato.IdMateria;
-                materiaGrado.IdGrado = dato.IdGrado;
+                materiaGrado.DescripcionMateria = dato.DescripcionMateria;
+                materiaGrado.Descripcion = dato.Descripcion;
 
                 ViewBag.Materia = ConsultarMateria();
                 ViewBag.Grado = ConsultarGrado();

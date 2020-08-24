@@ -76,7 +76,7 @@
   </Function>
   <Function Name="dbo.ActualizarMateria" Method="ActualizarMateria">
     <Parameter Name="IdMateria" Parameter="idMateria" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Descripcion" Parameter="descripcion" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="DescripcionMateria" Parameter="descripcionMateria" Type="System.String" DbType="VarChar(50)" />
     <Parameter Name="IdInstitucion" Parameter="idInstitucion" Type="System.Int32" DbType="Int" />
     <Parameter Name="Estado" Parameter="estado" Type="System.Boolean" DbType="Bit" />
     <Return Type="System.Int32" />
@@ -167,7 +167,7 @@
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.AgregarMateria" Method="AgregarMateria">
-    <Parameter Name="Descripcion" Parameter="descripcion" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="DescripcionMateria" Parameter="descripcionMateria" Type="System.String" DbType="VarChar(50)" />
     <Parameter Name="IdInstitucion" Parameter="idInstitucion" Type="System.Int32" DbType="Int" />
     <Parameter Name="Estado" Parameter="estado" Type="System.Boolean" DbType="Bit" />
     <Return Type="System.Int32" />
@@ -229,8 +229,8 @@
     <ElementType Name="ConsultaDocenteResult">
       <Column Name="IdDocente" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="IdInstitucion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="IdUsuario" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="IdMateria" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdUsuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IdMateria" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Estado" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
@@ -247,9 +247,34 @@
     <ElementType Name="ConsultaEstudianteResult">
       <Column Name="IdEstudiante" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="IdInstitucion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="IdUsuario" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="IdGrado" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdUsuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IdGrado" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Estado" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IdInstitucion1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Descripcion" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Telefono" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Encargado" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Direccion" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="Provincia" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="Canton" Type="System.String" DbType="Char(2) NOT NULL" CanBeNull="false" />
+      <Column Name="Distrito" Type="System.String" DbType="Char(2) NOT NULL" CanBeNull="false" />
+      <Column Name="Estado1" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IdUsuario1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IdInstitucion2" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IdTipoIdentificacion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Identificacion" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Apellido1" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Apellido2" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Clave" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Telefono1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Direccion1" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="Correo" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="FechaNacimiento" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Estado2" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IdGrado1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Descripcion1" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Estado3" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
   <Function Name="dbo.ConsultaHorario" Method="ConsultaHorario">
@@ -283,7 +308,7 @@
     <Parameter Name="IdMateria" Parameter="idMateria" Type="System.Int32" DbType="Int" />
     <ElementType Name="ConsultaMateriaResult">
       <Column Name="IdMateria" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Descripcion" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DescripcionMateria" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="IdInstitucion" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Estado" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
     </ElementType>
@@ -294,6 +319,13 @@
       <Column Name="IdMateriaGrado" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="IdMateria" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="IdGrado" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IdMateria1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DescripcionMateria" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IdInstitucion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Estado" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IdGrado1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Descripcion" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Estado1" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
   <Function Name="dbo.ConsultaNota" Method="ConsultaNota">
@@ -321,8 +353,8 @@
     <ElementType Name="ConsultarDocenteResult">
       <Column Name="IdDocente" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="IdInstitucion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="IdUsuario" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="IdMateria" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdUsuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IdMateria" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Estado" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
@@ -337,9 +369,34 @@
     <ElementType Name="ConsultarEstudianteResult">
       <Column Name="IdEstudiante" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="IdInstitucion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="IdUsuario" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="IdGrado" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdUsuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IdGrado" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Estado" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IdInstitucion1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Descripcion" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Telefono" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Encargado" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Direccion" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="Provincia" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="Canton" Type="System.String" DbType="Char(2) NOT NULL" CanBeNull="false" />
+      <Column Name="Distrito" Type="System.String" DbType="Char(2) NOT NULL" CanBeNull="false" />
+      <Column Name="Estado1" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IdUsuario1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IdInstitucion2" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IdTipoIdentificacion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Identificacion" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Apellido1" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Apellido2" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Clave" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Telefono1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Direccion1" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="Correo" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="FechaNacimiento" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Estado2" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IdGrado1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Descripcion1" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Estado3" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
   <Function Name="dbo.ConsultarGrado" Method="ConsultarGrado">
@@ -377,7 +434,7 @@
   <Function Name="dbo.ConsultarMateria" Method="ConsultarMateria">
     <ElementType Name="ConsultarMateriaResult">
       <Column Name="IdMateria" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Descripcion" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DescripcionMateria" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="IdInstitucion" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Estado" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
     </ElementType>
@@ -388,9 +445,12 @@
       <Column Name="IdMateria" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="IdGrado" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="IdMateria1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Descripcion" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DescripcionMateria" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="IdInstitucion" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Estado" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IdGrado1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Descripcion" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Estado1" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
   <Function Name="dbo.ConsultarNota" Method="ConsultarNota">
@@ -567,6 +627,13 @@
     <ElementType Name="ProvinciasResult">
       <Column Name="Provincia" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
       <Column Name="Nombre" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.UsuarioRoles" Method="UsuarioRoles">
+    <Parameter Name="IdUsuario" Parameter="idUsuario" Type="System.Int32" DbType="Int" />
+    <ElementType Name="UsuarioRolesResult">
+      <Column Name="IdRol" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Rol" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
 </Database>

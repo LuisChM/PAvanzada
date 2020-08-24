@@ -9,6 +9,8 @@ using Proyecto.Models;
 
 namespace Proyecto.Controllers
 {
+    [Authorize]
+    [AuthorizeRole(Role.Director)]
     public class MateriaController : Controller
     {
 
@@ -29,7 +31,7 @@ namespace Proyecto.Controllers
                 {
                     Materia materia = new Materia();
                     materia.IdMateria = item.IdMateria;
-                    materia.Descripcion = item.Descripcion;
+                    materia.DescripcionMateria = item.DescripcionMateria;
                     materia.IdInstitucion = item.IdInstitucion;
                     materia.Estado = item.Estado;
 
@@ -56,7 +58,7 @@ namespace Proyecto.Controllers
 
                 Materia materia = new Materia();
                 materia.IdMateria = dato.IdMateria;
-                materia.Descripcion = dato.Descripcion;
+                materia.DescripcionMateria = dato.DescripcionMateria;
                 materia.IdInstitucion = dato.IdInstitucion;
                 materia.Estado = dato.Estado;
 
@@ -78,7 +80,7 @@ namespace Proyecto.Controllers
 
                 Materia materia = new Materia();
                 materia.IdMateria = dato.IdMateria;
-                materia.Descripcion = dato.Descripcion;
+                materia.DescripcionMateria = dato.DescripcionMateria;
                 materia.IdInstitucion = dato.IdInstitucion;
                 materia.Estado = dato.Estado;
 
@@ -93,7 +95,7 @@ namespace Proyecto.Controllers
         {
             try
             {
-                if (ObjMateria.ActualizarMateria(materia.IdMateria, materia.Descripcion, materia.IdInstitucion , materia.Estado))
+                if (ObjMateria.ActualizarMateria(materia.IdMateria, materia.DescripcionMateria, materia.IdInstitucion , materia.Estado))
                 {
                     return RedirectToAction("Index");
                 }
@@ -126,7 +128,7 @@ namespace Proyecto.Controllers
         {
             try
             {
-                if (ObjMateria.AgregarMateria(materia.Descripcion, materia.IdInstitucion, materia.Estado))
+                if (ObjMateria.AgregarMateria(materia.DescripcionMateria, materia.IdInstitucion, materia.Estado))
                 {
                     return RedirectToAction("Index");
                 }
@@ -157,7 +159,7 @@ namespace Proyecto.Controllers
 
                 Materia materia = new Materia();
                 materia.IdMateria = dato.IdMateria;
-                materia.Descripcion = dato.Descripcion;
+                materia.DescripcionMateria = dato.DescripcionMateria;
                 materia.IdInstitucion = dato.IdInstitucion;
                 materia.Estado = dato.Estado;
                 return View(materia);

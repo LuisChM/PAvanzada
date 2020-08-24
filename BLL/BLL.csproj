@@ -44,6 +44,9 @@
   <ItemGroup>
     <Compile Include="clsCalificacion.cs" />
     <Compile Include="clsConsultas.cs" />
+    <Compile Include="clsDocente.cs" />
+    <Compile Include="clsDocenteGrado.cs" />
+    <Compile Include="clsEstudiante.cs" />
     <Compile Include="clsHorario.cs" />
     <Compile Include="clsInstitucion.cs" />
     <Compile Include="clsGrado.cs" />

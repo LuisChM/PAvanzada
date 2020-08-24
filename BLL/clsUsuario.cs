@@ -91,5 +91,20 @@ namespace BLL
 			}
 		}
 
+		public List<UsuarioRolesResult> ConsultarRolesUsuario(int IdUsuario)
+		{
+			try
+			{
+				DatosDataContext db = new DatosDataContext();
+				List<UsuarioRolesResult> datos = db.UsuarioRoles(IdUsuario).ToList();
+				return datos;
+			}
+			catch (Exception ex)
+			{
+
+				throw;
+			}
+		}
+
 	}
 }

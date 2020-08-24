@@ -10,5 +10,7 @@ namespace Proyecto.Models
         public int IdMateriaGrado { get; set; }
         public int IdMateria { get; set; }
         public int IdGrado { get; set; }
+        public string DescripcionMateria { get; set; }
+        public string Descripcion { get; set; }
     }
 }

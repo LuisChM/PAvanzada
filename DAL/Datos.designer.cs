@@ -112,9 +112,9 @@ namespace DAL
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ActualizarMateria")]
-		public int ActualizarMateria([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdMateria", DbType="Int")] System.Nullable<int> idMateria, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Descripcion", DbType="VarChar(50)")] string descripcion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdInstitucion", DbType="Int")] System.Nullable<int> idInstitucion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Estado", DbType="Bit")] System.Nullable<bool> estado)
+		public int ActualizarMateria([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdMateria", DbType="Int")] System.Nullable<int> idMateria, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DescripcionMateria", DbType="VarChar(50)")] string descripcionMateria, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdInstitucion", DbType="Int")] System.Nullable<int> idInstitucion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Estado", DbType="Bit")] System.Nullable<bool> estado)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idMateria, descripcion, idInstitucion, estado);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idMateria, descripcionMateria, idInstitucion, estado);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -189,9 +189,9 @@ namespace DAL
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.AgregarMateria")]
-		public int AgregarMateria([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Descripcion", DbType="VarChar(50)")] string descripcion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdInstitucion", DbType="Int")] System.Nullable<int> idInstitucion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Estado", DbType="Bit")] System.Nullable<bool> estado)
+		public int AgregarMateria([global::System.Data.Linq.Mapping.ParameterAttribute(Name="DescripcionMateria", DbType="VarChar(50)")] string descripcionMateria, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdInstitucion", DbType="Int")] System.Nullable<int> idInstitucion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Estado", DbType="Bit")] System.Nullable<bool> estado)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), descripcion, idInstitucion, estado);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), descripcionMateria, idInstitucion, estado);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -508,6 +508,13 @@ namespace DAL
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<ProvinciasResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UsuarioRoles")]
+		public ISingleResult<UsuarioRolesResult> UsuarioRoles([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdUsuario", DbType="Int")] System.Nullable<int> idUsuario)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idUsuario);
+			return ((ISingleResult<UsuarioRolesResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -956,9 +963,9 @@ namespace DAL
 		
 		private int _IdInstitucion;
 		
-		private System.Nullable<int> _IdUsuario;
+		private int _IdUsuario;
 		
-		private System.Nullable<int> _IdMateria;
+		private int _IdMateria;
 		
 		private bool _Estado;
 		
@@ -998,8 +1005,8 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdUsuario", DbType="Int")]
-		public System.Nullable<int> IdUsuario
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdUsuario", DbType="Int NOT NULL")]
+		public int IdUsuario
 		{
 			get
 			{
@@ -1014,8 +1021,8 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdMateria", DbType="Int")]
-		public System.Nullable<int> IdMateria
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdMateria", DbType="Int NOT NULL")]
+		public int IdMateria
 		{
 			get
 			{
@@ -1116,11 +1123,61 @@ namespace DAL
 		
 		private int _IdInstitucion;
 		
-		private System.Nullable<int> _IdUsuario;
+		private int _IdUsuario;
 		
-		private System.Nullable<int> _IdGrado;
+		private int _IdGrado;
 		
 		private bool _Estado;
+		
+		private int _IdInstitucion1;
+		
+		private string _Descripcion;
+		
+		private string _Telefono;
+		
+		private string _Encargado;
+		
+		private string _Direccion;
+		
+		private char _Provincia;
+		
+		private string _Canton;
+		
+		private string _Distrito;
+		
+		private bool _Estado1;
+		
+		private int _IdUsuario1;
+		
+		private int _IdInstitucion2;
+		
+		private int _IdTipoIdentificacion;
+		
+		private string _Identificacion;
+		
+		private string _Nombre;
+		
+		private string _Apellido1;
+		
+		private string _Apellido2;
+		
+		private string _Clave;
+		
+		private string _Telefono1;
+		
+		private string _Direccion1;
+		
+		private string _Correo;
+		
+		private System.DateTime _FechaNacimiento;
+		
+		private bool _Estado2;
+		
+		private int _IdGrado1;
+		
+		private string _Descripcion1;
+		
+		private bool _Estado3;
 		
 		public ConsultaEstudianteResult()
 		{
@@ -1158,8 +1215,8 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdUsuario", DbType="Int")]
-		public System.Nullable<int> IdUsuario
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdUsuario", DbType="Int NOT NULL")]
+		public int IdUsuario
 		{
 			get
 			{
@@ -1174,8 +1231,8 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdGrado", DbType="Int")]
-		public System.Nullable<int> IdGrado
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdGrado", DbType="Int NOT NULL")]
+		public int IdGrado
 		{
 			get
 			{
@@ -1202,6 +1259,406 @@ namespace DAL
 				if ((this._Estado != value))
 				{
 					this._Estado = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdInstitucion1", DbType="Int NOT NULL")]
+		public int IdInstitucion1
+		{
+			get
+			{
+				return this._IdInstitucion1;
+			}
+			set
+			{
+				if ((this._IdInstitucion1 != value))
+				{
+					this._IdInstitucion1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descripcion", DbType="VarChar(200) NOT NULL", CanBeNull=false)]
+		public string Descripcion
+		{
+			get
+			{
+				return this._Descripcion;
+			}
+			set
+			{
+				if ((this._Descripcion != value))
+				{
+					this._Descripcion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Telefono", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Telefono
+		{
+			get
+			{
+				return this._Telefono;
+			}
+			set
+			{
+				if ((this._Telefono != value))
+				{
+					this._Telefono = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Encargado", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Encargado
+		{
+			get
+			{
+				return this._Encargado;
+			}
+			set
+			{
+				if ((this._Encargado != value))
+				{
+					this._Encargado = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Direccion", DbType="VarChar(500)")]
+		public string Direccion
+		{
+			get
+			{
+				return this._Direccion;
+			}
+			set
+			{
+				if ((this._Direccion != value))
+				{
+					this._Direccion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Provincia", DbType="Char(1) NOT NULL")]
+		public char Provincia
+		{
+			get
+			{
+				return this._Provincia;
+			}
+			set
+			{
+				if ((this._Provincia != value))
+				{
+					this._Provincia = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Canton", DbType="Char(2) NOT NULL", CanBeNull=false)]
+		public string Canton
+		{
+			get
+			{
+				return this._Canton;
+			}
+			set
+			{
+				if ((this._Canton != value))
+				{
+					this._Canton = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Distrito", DbType="Char(2) NOT NULL", CanBeNull=false)]
+		public string Distrito
+		{
+			get
+			{
+				return this._Distrito;
+			}
+			set
+			{
+				if ((this._Distrito != value))
+				{
+					this._Distrito = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Estado1", DbType="Bit NOT NULL")]
+		public bool Estado1
+		{
+			get
+			{
+				return this._Estado1;
+			}
+			set
+			{
+				if ((this._Estado1 != value))
+				{
+					this._Estado1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdUsuario1", DbType="Int NOT NULL")]
+		public int IdUsuario1
+		{
+			get
+			{
+				return this._IdUsuario1;
+			}
+			set
+			{
+				if ((this._IdUsuario1 != value))
+				{
+					this._IdUsuario1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdInstitucion2", DbType="Int NOT NULL")]
+		public int IdInstitucion2
+		{
+			get
+			{
+				return this._IdInstitucion2;
+			}
+			set
+			{
+				if ((this._IdInstitucion2 != value))
+				{
+					this._IdInstitucion2 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdTipoIdentificacion", DbType="Int NOT NULL")]
+		public int IdTipoIdentificacion
+		{
+			get
+			{
+				return this._IdTipoIdentificacion;
+			}
+			set
+			{
+				if ((this._IdTipoIdentificacion != value))
+				{
+					this._IdTipoIdentificacion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Identificacion", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Identificacion
+		{
+			get
+			{
+				return this._Identificacion;
+			}
+			set
+			{
+				if ((this._Identificacion != value))
+				{
+					this._Identificacion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Nombre
+		{
+			get
+			{
+				return this._Nombre;
+			}
+			set
+			{
+				if ((this._Nombre != value))
+				{
+					this._Nombre = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Apellido1", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Apellido1
+		{
+			get
+			{
+				return this._Apellido1;
+			}
+			set
+			{
+				if ((this._Apellido1 != value))
+				{
+					this._Apellido1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Apellido2", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Apellido2
+		{
+			get
+			{
+				return this._Apellido2;
+			}
+			set
+			{
+				if ((this._Apellido2 != value))
+				{
+					this._Apellido2 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Clave", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Clave
+		{
+			get
+			{
+				return this._Clave;
+			}
+			set
+			{
+				if ((this._Clave != value))
+				{
+					this._Clave = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Telefono1", DbType="VarChar(50)")]
+		public string Telefono1
+		{
+			get
+			{
+				return this._Telefono1;
+			}
+			set
+			{
+				if ((this._Telefono1 != value))
+				{
+					this._Telefono1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Direccion1", DbType="VarChar(500)")]
+		public string Direccion1
+		{
+			get
+			{
+				return this._Direccion1;
+			}
+			set
+			{
+				if ((this._Direccion1 != value))
+				{
+					this._Direccion1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Correo", DbType="VarChar(100)")]
+		public string Correo
+		{
+			get
+			{
+				return this._Correo;
+			}
+			set
+			{
+				if ((this._Correo != value))
+				{
+					this._Correo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaNacimiento", DbType="DateTime NOT NULL")]
+		public System.DateTime FechaNacimiento
+		{
+			get
+			{
+				return this._FechaNacimiento;
+			}
+			set
+			{
+				if ((this._FechaNacimiento != value))
+				{
+					this._FechaNacimiento = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Estado2", DbType="Bit NOT NULL")]
+		public bool Estado2
+		{
+			get
+			{
+				return this._Estado2;
+			}
+			set
+			{
+				if ((this._Estado2 != value))
+				{
+					this._Estado2 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdGrado1", DbType="Int NOT NULL")]
+		public int IdGrado1
+		{
+			get
+			{
+				return this._IdGrado1;
+			}
+			set
+			{
+				if ((this._IdGrado1 != value))
+				{
+					this._IdGrado1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descripcion1", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Descripcion1
+		{
+			get
+			{
+				return this._Descripcion1;
+			}
+			set
+			{
+				if ((this._Descripcion1 != value))
+				{
+					this._Descripcion1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Estado3", DbType="Bit NOT NULL")]
+		public bool Estado3
+		{
+			get
+			{
+				return this._Estado3;
+			}
+			set
+			{
+				if ((this._Estado3 != value))
+				{
+					this._Estado3 = value;
 				}
 			}
 		}
@@ -1534,7 +1991,7 @@ namespace DAL
 		
 		private int _IdMateria;
 		
-		private string _Descripcion;
+		private string _DescripcionMateria;
 		
 		private System.Nullable<int> _IdInstitucion;
 		
@@ -1560,18 +2017,18 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descripcion", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Descripcion
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DescripcionMateria", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string DescripcionMateria
 		{
 			get
 			{
-				return this._Descripcion;
+				return this._DescripcionMateria;
 			}
 			set
 			{
-				if ((this._Descripcion != value))
+				if ((this._DescripcionMateria != value))
 				{
-					this._Descripcion = value;
+					this._DescripcionMateria = value;
 				}
 			}
 		}
@@ -1617,6 +2074,20 @@ namespace DAL
 		private int _IdMateria;
 		
 		private int _IdGrado;
+		
+		private int _IdMateria1;
+		
+		private string _DescripcionMateria;
+		
+		private System.Nullable<int> _IdInstitucion;
+		
+		private bool _Estado;
+		
+		private int _IdGrado1;
+		
+		private string _Descripcion;
+		
+		private bool _Estado1;
 		
 		public ConsultaMateriaGradoResult()
 		{
@@ -1666,6 +2137,118 @@ namespace DAL
 				if ((this._IdGrado != value))
 				{
 					this._IdGrado = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdMateria1", DbType="Int NOT NULL")]
+		public int IdMateria1
+		{
+			get
+			{
+				return this._IdMateria1;
+			}
+			set
+			{
+				if ((this._IdMateria1 != value))
+				{
+					this._IdMateria1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DescripcionMateria", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string DescripcionMateria
+		{
+			get
+			{
+				return this._DescripcionMateria;
+			}
+			set
+			{
+				if ((this._DescripcionMateria != value))
+				{
+					this._DescripcionMateria = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdInstitucion", DbType="Int")]
+		public System.Nullable<int> IdInstitucion
+		{
+			get
+			{
+				return this._IdInstitucion;
+			}
+			set
+			{
+				if ((this._IdInstitucion != value))
+				{
+					this._IdInstitucion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Estado", DbType="Bit NOT NULL")]
+		public bool Estado
+		{
+			get
+			{
+				return this._Estado;
+			}
+			set
+			{
+				if ((this._Estado != value))
+				{
+					this._Estado = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdGrado1", DbType="Int NOT NULL")]
+		public int IdGrado1
+		{
+			get
+			{
+				return this._IdGrado1;
+			}
+			set
+			{
+				if ((this._IdGrado1 != value))
+				{
+					this._IdGrado1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descripcion", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Descripcion
+		{
+			get
+			{
+				return this._Descripcion;
+			}
+			set
+			{
+				if ((this._Descripcion != value))
+				{
+					this._Descripcion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Estado1", DbType="Bit NOT NULL")]
+		public bool Estado1
+		{
+			get
+			{
+				return this._Estado1;
+			}
+			set
+			{
+				if ((this._Estado1 != value))
+				{
+					this._Estado1 = value;
 				}
 			}
 		}
@@ -1910,9 +2493,9 @@ namespace DAL
 		
 		private int _IdInstitucion;
 		
-		private System.Nullable<int> _IdUsuario;
+		private int _IdUsuario;
 		
-		private System.Nullable<int> _IdMateria;
+		private int _IdMateria;
 		
 		private bool _Estado;
 		
@@ -1952,8 +2535,8 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdUsuario", DbType="Int")]
-		public System.Nullable<int> IdUsuario
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdUsuario", DbType="Int NOT NULL")]
+		public int IdUsuario
 		{
 			get
 			{
@@ -1968,8 +2551,8 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdMateria", DbType="Int")]
-		public System.Nullable<int> IdMateria
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdMateria", DbType="Int NOT NULL")]
+		public int IdMateria
 		{
 			get
 			{
@@ -2070,11 +2653,61 @@ namespace DAL
 		
 		private int _IdInstitucion;
 		
-		private System.Nullable<int> _IdUsuario;
+		private int _IdUsuario;
 		
-		private System.Nullable<int> _IdGrado;
+		private int _IdGrado;
 		
 		private bool _Estado;
+		
+		private int _IdInstitucion1;
+		
+		private string _Descripcion;
+		
+		private string _Telefono;
+		
+		private string _Encargado;
+		
+		private string _Direccion;
+		
+		private char _Provincia;
+		
+		private string _Canton;
+		
+		private string _Distrito;
+		
+		private bool _Estado1;
+		
+		private int _IdUsuario1;
+		
+		private int _IdInstitucion2;
+		
+		private int _IdTipoIdentificacion;
+		
+		private string _Identificacion;
+		
+		private string _Nombre;
+		
+		private string _Apellido1;
+		
+		private string _Apellido2;
+		
+		private string _Clave;
+		
+		private string _Telefono1;
+		
+		private string _Direccion1;
+		
+		private string _Correo;
+		
+		private System.DateTime _FechaNacimiento;
+		
+		private bool _Estado2;
+		
+		private int _IdGrado1;
+		
+		private string _Descripcion1;
+		
+		private bool _Estado3;
 		
 		public ConsultarEstudianteResult()
 		{
@@ -2112,8 +2745,8 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdUsuario", DbType="Int")]
-		public System.Nullable<int> IdUsuario
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdUsuario", DbType="Int NOT NULL")]
+		public int IdUsuario
 		{
 			get
 			{
@@ -2128,8 +2761,8 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdGrado", DbType="Int")]
-		public System.Nullable<int> IdGrado
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdGrado", DbType="Int NOT NULL")]
+		public int IdGrado
 		{
 			get
 			{
@@ -2156,6 +2789,406 @@ namespace DAL
 				if ((this._Estado != value))
 				{
 					this._Estado = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdInstitucion1", DbType="Int NOT NULL")]
+		public int IdInstitucion1
+		{
+			get
+			{
+				return this._IdInstitucion1;
+			}
+			set
+			{
+				if ((this._IdInstitucion1 != value))
+				{
+					this._IdInstitucion1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descripcion", DbType="VarChar(200) NOT NULL", CanBeNull=false)]
+		public string Descripcion
+		{
+			get
+			{
+				return this._Descripcion;
+			}
+			set
+			{
+				if ((this._Descripcion != value))
+				{
+					this._Descripcion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Telefono", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Telefono
+		{
+			get
+			{
+				return this._Telefono;
+			}
+			set
+			{
+				if ((this._Telefono != value))
+				{
+					this._Telefono = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Encargado", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Encargado
+		{
+			get
+			{
+				return this._Encargado;
+			}
+			set
+			{
+				if ((this._Encargado != value))
+				{
+					this._Encargado = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Direccion", DbType="VarChar(500)")]
+		public string Direccion
+		{
+			get
+			{
+				return this._Direccion;
+			}
+			set
+			{
+				if ((this._Direccion != value))
+				{
+					this._Direccion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Provincia", DbType="Char(1) NOT NULL")]
+		public char Provincia
+		{
+			get
+			{
+				return this._Provincia;
+			}
+			set
+			{
+				if ((this._Provincia != value))
+				{
+					this._Provincia = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Canton", DbType="Char(2) NOT NULL", CanBeNull=false)]
+		public string Canton
+		{
+			get
+			{
+				return this._Canton;
+			}
+			set
+			{
+				if ((this._Canton != value))
+				{
+					this._Canton = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Distrito", DbType="Char(2) NOT NULL", CanBeNull=false)]
+		public string Distrito
+		{
+			get
+			{
+				return this._Distrito;
+			}
+			set
+			{
+				if ((this._Distrito != value))
+				{
+					this._Distrito = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Estado1", DbType="Bit NOT NULL")]
+		public bool Estado1
+		{
+			get
+			{
+				return this._Estado1;
+			}
+			set
+			{
+				if ((this._Estado1 != value))
+				{
+					this._Estado1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdUsuario1", DbType="Int NOT NULL")]
+		public int IdUsuario1
+		{
+			get
+			{
+				return this._IdUsuario1;
+			}
+			set
+			{
+				if ((this._IdUsuario1 != value))
+				{
+					this._IdUsuario1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdInstitucion2", DbType="Int NOT NULL")]
+		public int IdInstitucion2
+		{
+			get
+			{
+				return this._IdInstitucion2;
+			}
+			set
+			{
+				if ((this._IdInstitucion2 != value))
+				{
+					this._IdInstitucion2 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdTipoIdentificacion", DbType="Int NOT NULL")]
+		public int IdTipoIdentificacion
+		{
+			get
+			{
+				return this._IdTipoIdentificacion;
+			}
+			set
+			{
+				if ((this._IdTipoIdentificacion != value))
+				{
+					this._IdTipoIdentificacion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Identificacion", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Identificacion
+		{
+			get
+			{
+				return this._Identificacion;
+			}
+			set
+			{
+				if ((this._Identificacion != value))
+				{
+					this._Identificacion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Nombre
+		{
+			get
+			{
+				return this._Nombre;
+			}
+			set
+			{
+				if ((this._Nombre != value))
+				{
+					this._Nombre = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Apellido1", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Apellido1
+		{
+			get
+			{
+				return this._Apellido1;
+			}
+			set
+			{
+				if ((this._Apellido1 != value))
+				{
+					this._Apellido1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Apellido2", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Apellido2
+		{
+			get
+			{
+				return this._Apellido2;
+			}
+			set
+			{
+				if ((this._Apellido2 != value))
+				{
+					this._Apellido2 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Clave", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Clave
+		{
+			get
+			{
+				return this._Clave;
+			}
+			set
+			{
+				if ((this._Clave != value))
+				{
+					this._Clave = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Telefono1", DbType="VarChar(50)")]
+		public string Telefono1
+		{
+			get
+			{
+				return this._Telefono1;
+			}
+			set
+			{
+				if ((this._Telefono1 != value))
+				{
+					this._Telefono1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Direccion1", DbType="VarChar(500)")]
+		public string Direccion1
+		{
+			get
+			{
+				return this._Direccion1;
+			}
+			set
+			{
+				if ((this._Direccion1 != value))
+				{
+					this._Direccion1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Correo", DbType="VarChar(100)")]
+		public string Correo
+		{
+			get
+			{
+				return this._Correo;
+			}
+			set
+			{
+				if ((this._Correo != value))
+				{
+					this._Correo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaNacimiento", DbType="DateTime NOT NULL")]
+		public System.DateTime FechaNacimiento
+		{
+			get
+			{
+				return this._FechaNacimiento;
+			}
+			set
+			{
+				if ((this._FechaNacimiento != value))
+				{
+					this._FechaNacimiento = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Estado2", DbType="Bit NOT NULL")]
+		public bool Estado2
+		{
+			get
+			{
+				return this._Estado2;
+			}
+			set
+			{
+				if ((this._Estado2 != value))
+				{
+					this._Estado2 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdGrado1", DbType="Int NOT NULL")]
+		public int IdGrado1
+		{
+			get
+			{
+				return this._IdGrado1;
+			}
+			set
+			{
+				if ((this._IdGrado1 != value))
+				{
+					this._IdGrado1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descripcion1", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Descripcion1
+		{
+			get
+			{
+				return this._Descripcion1;
+			}
+			set
+			{
+				if ((this._Descripcion1 != value))
+				{
+					this._Descripcion1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Estado3", DbType="Bit NOT NULL")]
+		public bool Estado3
+		{
+			get
+			{
+				return this._Estado3;
+			}
+			set
+			{
+				if ((this._Estado3 != value))
+				{
+					this._Estado3 = value;
 				}
 			}
 		}
@@ -2550,7 +3583,7 @@ namespace DAL
 		
 		private int _IdMateria;
 		
-		private string _Descripcion;
+		private string _DescripcionMateria;
 		
 		private System.Nullable<int> _IdInstitucion;
 		
@@ -2576,18 +3609,18 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descripcion", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Descripcion
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DescripcionMateria", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string DescripcionMateria
 		{
 			get
 			{
-				return this._Descripcion;
+				return this._DescripcionMateria;
 			}
 			set
 			{
-				if ((this._Descripcion != value))
+				if ((this._DescripcionMateria != value))
 				{
-					this._Descripcion = value;
+					this._DescripcionMateria = value;
 				}
 			}
 		}
@@ -2636,11 +3669,17 @@ namespace DAL
 		
 		private int _IdMateria1;
 		
-		private string _Descripcion;
+		private string _DescripcionMateria;
 		
 		private System.Nullable<int> _IdInstitucion;
 		
 		private bool _Estado;
+		
+		private int _IdGrado1;
+		
+		private string _Descripcion;
+		
+		private bool _Estado1;
 		
 		public ConsultarMateriaGradoResult()
 		{
@@ -2710,18 +3749,18 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descripcion", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Descripcion
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DescripcionMateria", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string DescripcionMateria
 		{
 			get
 			{
-				return this._Descripcion;
+				return this._DescripcionMateria;
 			}
 			set
 			{
-				if ((this._Descripcion != value))
+				if ((this._DescripcionMateria != value))
 				{
-					this._Descripcion = value;
+					this._DescripcionMateria = value;
 				}
 			}
 		}
@@ -2754,6 +3793,54 @@ namespace DAL
 				if ((this._Estado != value))
 				{
 					this._Estado = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdGrado1", DbType="Int NOT NULL")]
+		public int IdGrado1
+		{
+			get
+			{
+				return this._IdGrado1;
+			}
+			set
+			{
+				if ((this._IdGrado1 != value))
+				{
+					this._IdGrado1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descripcion", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Descripcion
+		{
+			get
+			{
+				return this._Descripcion;
+			}
+			set
+			{
+				if ((this._Descripcion != value))
+				{
+					this._Descripcion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Estado1", DbType="Bit NOT NULL")]
+		public bool Estado1
+		{
+			get
+			{
+				return this._Estado1;
+			}
+			set
+			{
+				if ((this._Estado1 != value))
+				{
+					this._Estado1 = value;
 				}
 			}
 		}
@@ -4346,6 +5433,50 @@ namespace DAL
 				if ((this._Nombre != value))
 				{
 					this._Nombre = value;
+				}
+			}
+		}
+	}
+	
+	public partial class UsuarioRolesResult
+	{
+		
+		private int _IdRol;
+		
+		private string _Rol;
+		
+		public UsuarioRolesResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdRol", DbType="Int NOT NULL")]
+		public int IdRol
+		{
+			get
+			{
+				return this._IdRol;
+			}
+			set
+			{
+				if ((this._IdRol != value))
+				{
+					this._IdRol = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Rol", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Rol
+		{
+			get
+			{
+				return this._Rol;
+			}
+			set
+			{
+				if ((this._Rol != value))
+				{
+					this._Rol = value;
 				}
 			}
 		}

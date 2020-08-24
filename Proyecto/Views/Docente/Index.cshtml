@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Proyecto.Models.Docente>
+
+@{
+    ViewBag.Title = "Docente";
+}
+
+<h2>Docente</h2>
+
+<p>
+    @Html.ActionLink("Agregar agregar docente", "Crear", "Docente", new { @class = "btn btn-primary" })
+</p>
+<div style="overflow-x:auto;">
+    <table class="table table-striped text-center">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.IdDocente)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.IdInstitucion)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.IdUsuario)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.IdMateria)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.Estado)
+                </th>
+                <th scope="col">
+                    Accion
+                </th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IdDocente)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IdInstitucion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IdUsuario)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IdMateria)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Estado)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Editar", "Editar", new { id = item.IdDocente }, new { @class = "btn btn-primary btn-sm" })
+                        @Html.ActionLink("Detalle", "Detalle", new { id = item.IdDocente }, new { @class = "btn btn-info btn-sm" })
+                        @Html.ActionLink("Eliminar", "Eliminar", new { id = item.IdDocente }, new { @class = "btn btn-danger btn-sm" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+</div>

@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Proyecto Progra 5</title>
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
@@ -10,46 +10,53 @@
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: #ffdf00;">
-        <a class="navbar-brand" href="~/Home/Index">Control escolar</a>
+        <a class="navbar-brand" href="~/Home/Index">Los Patitos</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+            @if (Request.IsAuthenticated)
+            {
+
         <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mr-auto">
+                    @if (User.IsInRole("Director"))
+                    {
+                    <li class="nav-item ">
+                        <a class="nav-link" href="/Home/Index">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Home/About">Acerca de</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="/Horario/Index">Horario</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Institucion/Index">Institución</a>
+                    </li>
 
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item ">
-                    <a class="nav-link" href="/Home/Index">Inicio</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/Home/About">Acerca de</a>
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="/Horario/Index">Horario</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/Institucion/Index">Institución</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/Materia/Index">Materia</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/MateriaGrado/Index">Materia Grado</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/Calificacion/Index">Calificación</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/UsuarioRol/Index">Asignar roles</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/Usuario/Index">Crear usuario</a>
-                </li>
-            </ul>
-            <div class="navbarNav">
-                <a href="@Url.Action("Salir", "Login")" class="btn btn-danger btn-sm">Salir</a>
+                    }
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Materia/Index">Materia</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/MateriaGrado/Index">Materia Grado</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Calificacion/Index">Calificación</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/UsuarioRol/Index">Asignar roles</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Usuario/Index">Crear usuario</a>
+                    </li>
+                </ul>
+            
+                <div class="navbarNav">
+                    <a href="@Url.Action("Salir", "Login")" class="btn btn-danger btn-sm">Salir</a>
+                </div>
             </div>
-        </div>
-
+            }
     </nav>
 
     <div class="container mt-4">

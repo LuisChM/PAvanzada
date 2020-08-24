@@ -36,17 +36,44 @@ namespace Proyecto.Controllers
             {
                 var ClaveEncriptada = Seguridad.EncryptString(SecretKey, login.Clave);
                 //var ClaveDesencriptada = Seguridad.DecryptString(SecretKey, ClaveEncriptada);
-                var dato = ObjUsuario.ValidaUsuario(login.Correo, ClaveEncriptada);
+                var datos = ObjUsuario.ValidaUsuario(login.Correo, ClaveEncriptada);
 
-                if (dato == null)
+                if (datos == null)
                 {
                     return View(login);
                 }
                 else
                 {
-                    Session["Identificacion"] = dato.Identificacion.ToString();
-                    FormsAuthentication.SetAuthCookie(dato.Nombre, login.Recordarme);
-                    return RedirectToAction("Index", "Home");
+                    //Roles del  Usuario
+                    var ListaRoles = ObjUsuario.ConsultarRolesUsuario(datos.IdUsuario);
+
+                    var roles = String.Join(",", ListaRoles.Select(x => x.Rol));
+
+                    Session["Identificacion"] = datos.Identificacion.ToString();
+                    Session["IdInstitucion"] = datos.IdInstitucion.ToString();
+                    Session["IdUsuario"] = datos.IdUsuario.ToString();
+                    //FormsAuthentication.SetAuthCookie(datos.Nombre + " " + datos.Apellido1 + " " +  datos.Apellido2, login.Recordarme);
+
+                    FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1, login.Correo, DateTime.Now, DateTime.Now.AddMinutes(30), login.Recordarme, roles, FormsAuthentication.FormsCookiePath);
+                    string hash = FormsAuthentication.Encrypt(ticket);
+                    HttpCookie cookie = new HttpCookie(FormsAuthentication.FormsCookieName, hash);
+
+                    if (ticket.IsPersistent)
+                    {
+                        cookie.Expires = ticket.Expiration;
+                    }
+                    Response.Cookies.Add(cookie);
+                    Session["Identificacion"] = datos.Identificacion;
+                    //if (Request.Browser.IsMobileDevice)
+                    //{
+                    //    return RedirectToAction("Index", "Carnet");
+                    //}
+                    //else
+                    //{
+                        return RedirectToAction("Index", "Home");
+                    //}
+
+
                 }
             }
             else

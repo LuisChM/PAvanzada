@@ -9,13 +9,15 @@ using Proyecto.Models;
 
 namespace Proyecto.Controllers
 {
+    [Authorize]
+    [AuthorizeRole(Role.Director)]
     public class InstitucionController : Controller
     {
 
         clsInstitucion ObjInstitucion = new clsInstitucion();
         clsConsultas ObjConsulta = new clsConsultas();
-        // GET: Institucion
 
+        // GET: Institucion
         public ActionResult Index()
         {
             try

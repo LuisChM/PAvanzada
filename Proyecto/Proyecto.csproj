@@ -134,6 +134,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CalificacionController.cs" />
+    <Compile Include="Controllers\DocenteController.cs" />
+    <Compile Include="Controllers\EstudianteController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HorarioController.cs" />
     <Compile Include="Controllers\InstitucionController.cs" />
@@ -142,11 +144,14 @@
     <Compile Include="Controllers\UsuarioRolController.cs" />
     <Compile Include="Controllers\MateriaGradoController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
-    <Compile Include="Filters\AuthorizeUser.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AuthorizeRoleAttribute.cs" />
     <Compile Include="Models\Calificacion.cs" />
+    <Compile Include="Models\Docente.cs" />
+    <Compile Include="Models\DocenteGrado.cs" />
+    <Compile Include="Models\Estudiante.cs" />
     <Compile Include="Models\Grado.cs" />
     <Compile Include="Models\Horario.cs" />
     <Compile Include="Models\Institucion.cs" />
@@ -154,6 +159,7 @@
     <Compile Include="Models\Materia.cs" />
     <Compile Include="Models\MateriaGrado.cs" />
     <Compile Include="Models\Rol.cs" />
+    <Compile Include="Models\Role.cs" />
     <Compile Include="Models\TipoIdentificacion.cs" />
     <Compile Include="Models\TipoOperacion.cs" />
     <Compile Include="Models\Usuario.cs" />
@@ -291,7 +297,6 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -360,9 +365,16 @@
     <Content Include="Views\UsuarioRol\Editar.cshtml" />
     <Content Include="Views\UsuarioRol\Crear.cshtml" />
     <Content Include="Views\UsuarioRol\Eliminar.cshtml" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\Docente\Index.cshtml" />
+    <Content Include="Views\Docente\Detalle.cshtml" />
+    <Content Include="Views\Docente\Editar.cshtml" />
+    <Content Include="Views\Docente\Crear.cshtml" />
+    <Content Include="Views\Docente\Eliminar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Estudiante\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
