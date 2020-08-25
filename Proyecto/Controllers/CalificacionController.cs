@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 using BLL;
 using DAL;
 using Proyecto.Models;
@@ -13,8 +14,12 @@ namespace Proyecto.Controllers
     [AuthorizeRole(Role.Profesor, Role.Estudiante)]
     public class CalificacionController : Controller
     {
-
         clsCalificacion ObjCalificacion = new clsCalificacion();
+        clsTipoOperacion objOperacion = new clsTipoOperacion();
+        clsEstudiante objEstudiante = new clsEstudiante();
+        clsDocente objDocente = new clsDocente();
+        clsMateria objMateria = new clsMateria();
+
         // GET: Calificacion
 
         public ActionResult Index()
@@ -66,6 +71,10 @@ namespace Proyecto.Controllers
                 calificacion.IdMateria = dato.IdMateria;
                 calificacion.Nota = dato.Nota;
                 calificacion.Fecha = dato.Fecha;
+                ViewBag.Docente = ConsultarDocente();
+                ViewBag.TipoOperacion = ConsultarTipoOperacion();
+                ViewBag.Materia = ConsultarMateria();
+                ViewBag.Estudiante = ConsultarEstudiante();
                 return View(calificacion);
             }
 
@@ -88,6 +97,12 @@ namespace Proyecto.Controllers
                 calificacion.IdMateria = dato.IdMateria;
                 calificacion.Nota = dato.Nota;
                 calificacion.Fecha = dato.Fecha;
+
+                ViewBag.Docente = ConsultarDocente();
+                ViewBag.TipoOperacion = ConsultarTipoOperacion();
+                ViewBag.Materia = ConsultarMateria();
+                ViewBag.Estudiante = ConsultarEstudiante();
+
                 return View(calificacion);
             }
 
@@ -104,11 +119,19 @@ namespace Proyecto.Controllers
                 }
                 else
                 {
+                    ViewBag.Docente = ConsultarDocente();
+                    ViewBag.TipoOperacion = ConsultarTipoOperacion();
+                    ViewBag.Materia = ConsultarMateria();
+                    ViewBag.Estudiante = ConsultarEstudiante();
                     return View();
                 }
             }
             catch (Exception)
             {
+                ViewBag.Docente = ConsultarDocente();
+                ViewBag.TipoOperacion = ConsultarTipoOperacion();
+                ViewBag.Materia = ConsultarMateria();
+                ViewBag.Estudiante = ConsultarEstudiante();
                 return View();
                 throw;
             }
@@ -117,6 +140,10 @@ namespace Proyecto.Controllers
         }
         public ActionResult Crear()
         {
+            ViewBag.Docente = ConsultarDocente();
+            ViewBag.TipoOperacion = ConsultarTipoOperacion();
+            ViewBag.Materia = ConsultarMateria();
+            ViewBag.Estudiante = ConsultarEstudiante();
             return View();
 
         }
@@ -132,6 +159,10 @@ namespace Proyecto.Controllers
                 }
                 else
                 {
+                    ViewBag.Docente = ConsultarDocente();
+                    ViewBag.TipoOperacion = ConsultarTipoOperacion();
+                    ViewBag.Materia = ConsultarMateria();
+                    ViewBag.Estudiante = ConsultarEstudiante();
                     return View();
                 }
             }
@@ -178,5 +209,28 @@ namespace Proyecto.Controllers
             }
 
         }
+        #region Datos
+        private List<ConsultarTipoOperacionResult> ConsultarTipoOperacion()
+        {
+            var operacion = objOperacion.ConsultarTipoOperacion();
+            return operacion;
+        }
+        private List<ConsultarDocenteResult> ConsultarDocente()
+        {
+            var docente = objDocente.ConsultarDocente();
+            return docente;
+        }
+        private List<ConsultarEstudianteResult> ConsultarEstudiante()
+        {
+            var operacion = objEstudiante.ConsultarEstudiante();
+            return operacion;
+        }
+        private List<ConsultarMateriaResult> ConsultarMateria()
+        {
+            var operacion = objMateria.ConsultarMateria();
+            return operacion;
+        }
+
+        #endregion
     }
 }

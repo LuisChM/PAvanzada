@@ -198,6 +198,7 @@ namespace Proyecto.Controllers
             }
 
         }
+
         #region Datos
         private List<ConsultarInstitucionResult> ConsultarInstitucion()
         {

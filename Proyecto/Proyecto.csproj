@@ -179,6 +179,8 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Imagenes\25101.jpg" />
+    <Content Include="Imagenes\escanear.svg" />
+    <Content Include="Imagenes\piramide.svg" />
     <Content Include="Imagenes\profesor.svg" />
     <Content Include="Imagenes\estudiante.svg" />
     <Content Include="Imagenes\horario.svg" />
